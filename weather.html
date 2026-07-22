@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="weather-style.css">
+</head>
+<body>
+
+  <div class="weather-container">
+    <h1>🌤️ Weather Dashboard</h1>
+    
+    <div class="search-section">
+      <input type="text" id="cityInput" placeholder="Enter city name..." class="search-input">
+      <button onclick="searchWeather()" class="search-btn">🔍 Search</button>
+      <button onclick="getCurrentLocation()" class="location-btn">📍 Current Location</button>
+    </div>
+
+    <div id="loading" class="loading" style="display: none;">
+      <p>Loading weather data...</p>
+    </div>
+
+    <div id="error" class="error-message" style="display: none;">
+      <p id="error-text"></p>
+    </div>
+
+    <!-- Current Weather -->
+    <div id="current-weather" class="current-weather" style="display: none;">
+      <div class="weather-header">
+        <div class="city-info">
+          <h2 id="city-name"></h2>
+          <p id="date-time"></p>
+        </div>
+        <div class="weather-icon-large">
+          <img id="weather-icon-large" src="" alt="Weather">
+        </div>
+      </div>
+
+      <div class="temperature-section">
+        <div class="temp-main">
+          <span id="temperature" class="temp"></span>
+          <span class="unit">°C</span>
+        </div>
+        <div class="weather-description">
+          <p id="weather-desc"></p>
+          <p id="feels-like">Feels like: <span id="feels-like-temp"></span>°C</p>
+        </div>
+      </div>
+
+      <div class="weather-details">
+        <div class="detail-card">
+          <span class="detail-icon">💧</span>
+          <p class="detail-label">Humidity</p>
+          <p class="detail-value" id="humidity"></p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">💨</span>
+          <p class="detail-label">Wind Speed</p>
+          <p class="detail-value" id="wind-speed"></p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">🌡️</span>
+          <p class="detail-label">Pressure</p>
+          <p class="detail-value" id="pressure"></p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">👁️</span>
+          <p class="detail-label">Visibility</p>
+          <p class="detail-value" id="visibility"></p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">☁️</span>
+          <p class="detail-label">Cloudiness</p>
+          <p class="detail-value" id="clouds"></p>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">🌅</span>
+          <p class="detail-label">UV Index</p>
+          <p class="detail-value" id="uv-index"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-Day Forecast -->
+    <div id="forecast-section" style="display: none;">
+      <h3>📅 5-Day Forecast</h3>
+      <div class="forecast-grid" id="forecast-grid">
+        <!-- Forecast cards will be added here -->
+      </div>
+    </div>
+
+    <!-- Hourly Forecast -->
+    <div id="hourly-section" style="display: none;">
+      <h3>⏰ Hourly Forecast</h3>
+      <div class="hourly-scroll" id="hourly-scroll">
+        <!-- Hourly forecast will be added here -->
+      </div>
+    </div>
+
+  </div>
+
+  <script src="weather-script.js"></script>
+</body>
+</html>
